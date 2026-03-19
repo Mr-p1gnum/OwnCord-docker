@@ -171,7 +171,7 @@ go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
 ## Branch Strategy
 
 - `main` -- stable releases
-- `tauri-migration` -- active development
+- `dev` -- active development
 
 ## Critical Rules (always apply)
 
