@@ -1,0 +1,17 @@
+version: '3.9'
+services:
+  OwnCord:
+    image: mr-p1gnum/owncord:1.000
+    container_name: 'OwnCord'
+    restart: 'unless-stopped' 
+    ports:
+      - '8443:8443'
+      - '7880:7880'
+    volumes:
+      - /var/OwnCord-data:/app/data
+      - /var/OwnCord-data/backups:/app/data/backups
+    networks:
+      - chat
+networks:
+  chat:
+    driver: bridge
