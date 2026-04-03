@@ -7,7 +7,6 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
-	"runtime"
 	"syscall"
 	"time"
 
@@ -132,11 +131,9 @@ func spawnDetached(exePath string, args []string) error {
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 
-	if runtime.GOOS == "windows" {
-		cmd.SysProcAttr = &syscall.SysProcAttr{
-			CreationFlags: 0x00000008, // DETACHED_PROCESS
-		}
+	// Для Unix-систем: отделяем процесс от родительской группы
+	cmd.SysProcAttr = &syscall.SysProcAttr{
+		Setpgid: true, // создаём новую группу процессов
 	}
-
 	return cmd.Start()
 }
