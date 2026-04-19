@@ -83,7 +83,7 @@ func (p *LiveKitProcess) generateConfig() (string, error) {
 port: 7880
 
 rtc:
-  port_range_start: 50000
+  port_range_start: 55000
   port_range_end: 60000
   use_external_ip: true%s
   pli_throttle:
@@ -150,10 +150,10 @@ func (p *LiveKitProcess) runLoop(ctx context.Context, cfgPath string) {
 	}()
 
 	const (
-		baseDelay      = 3 * time.Second
-		maxDelay       = 60 * time.Second
-		maxRetries     = 10
-		stableAfter    = 30 * time.Second // reset counter if process runs longer than this
+		baseDelay   = 3 * time.Second
+		maxDelay    = 60 * time.Second
+		maxRetries  = 10
+		stableAfter = 30 * time.Second // reset counter if process runs longer than this
 	)
 
 	rapidFailures := 0
