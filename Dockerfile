@@ -48,7 +48,9 @@ COPY --from=owncord /build/chatserver .
 COPY --from=livekit /build/livekit-server .
 
 # Копируем скрипт для инициализации livekit и owncord
-COPY docker-entrypoint.sh ./
+COPY docker-entrypoint.sh .
+RUN sed -i 's/\r$//' /app/docker-entrypoint.sh
+
 # Делаем скрипт исполняемым
 RUN chmod +x /app/docker-entrypoint.sh
 

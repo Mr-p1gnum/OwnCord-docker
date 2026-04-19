@@ -83,7 +83,7 @@ func (p *LiveKitProcess) generateConfig() (string, error) {
 port: 7880
 
 rtc:
-  port_range_start: 55000
+  port_range_start: 57000
   port_range_end: 60000
   use_external_ip: true%s
   pli_throttle:
