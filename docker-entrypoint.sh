@@ -37,8 +37,8 @@ if [ ! -f "$CONFIG_FILE" ]; then
         sed -i.bak  "s|# livekit_api_key:.*|livekit_api_key: \"$LIVEKIT_API_KEY\"|" "$CONFIG_FILE"
         sed -i.bak  "s|# livekit_api_secret:.*|livekit_api_secret: \"$LIVEKIT_API_SECRET\"|" "$CONFIG_FILE"
         sed -i.bak  's|# livekit_binary:.*|livekit_binary: "/app/livekit-server"|' "$CONFIG_FILE"
-        sed -i.bak  's|livekit_url:.*|livekit_url: "localhost:7880"|' "$CONFIG_FILE"
-        sed -i.bak  's|# quality:.*|quality: "high"|' "$CONFIG_FILE"
+        sed -i.bak  's|livekit_url:.*|livekit_url: "http://localhost:7880"|' "$CONFIG_FILE"
+        sed -i.bak  's|# quality:.*|quality: "medium"|' "$CONFIG_FILE"
         echo "Ключи LiveKit добавлены в конфигурацию."
     else
         echo "Ошибка: конфигурационный файл не был создан!" >&2
